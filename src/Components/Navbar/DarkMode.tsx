@@ -1,23 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { BiSolidSun, BiSolidMoon } from "react-icons/bi";
 
-const DarkMode = () => {
-  const [theme, setTheme] = useState(
-    localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
+const DarkMode: React.FC = () => {
+  const [theme, setTheme] = React.useState<string>(
+    (typeof localStorage !== 'undefined' && localStorage.getItem("theme")) || "light"
   );
 
-  const element = document.documentElement;
+  const element = typeof document !== 'undefined' ? document.documentElement : null;
 
   React.useEffect(() => {
-    localStorage.setItem("theme", theme);
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem("theme", theme);
+    }
+    if (!element) return;
     if (theme === "dark") {
       element.classList.add("dark");
-      element.classList.add("dark");
-    } else {
       element.classList.remove("light");
+    } else {
+      element.classList.add("light");
       element.classList.remove("dark");
     }
-  });
+  }, [theme, element]);
+
   return (
     <>
       {theme === "dark" ? (

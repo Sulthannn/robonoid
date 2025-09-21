@@ -3,33 +3,40 @@ import Logo from "../../assets/logo.png";
 import { HiMenuAlt1, HiMenuAlt3 } from "react-icons/hi";
 import DarkMode from "./DarkMode";
 
-const NavLinks = [
+type NavLink = {
+  id: number;
+  name: string;
+  link: string;
+};
+
+const NavLinks: NavLink[] = [
   {
     id: 1,
     name: "Home",
-    link: "#",
+    link: "#home",
   },
   {
     id: 2,
     name: "Feature",
-    link: "#",
+    link: "#features",
   },
   {
     id: 3,
     name: "Profile",
-    link: "#",
+    link: "#profile",
   },
   {
     id: 4,
     name: "Download",
-    link: "#",
+    link: "#download",
   },
 ];
-const Navbar = () => {
+
+const Navbar: React.FC = () => {
   const [showMenu, setShowMenu] = React.useState(false);
   const toggleMenu = () => setShowMenu(!showMenu);
   return (
-    <div className="relative z-[9999] text-black dark:text-white duration-300">
+    <div className="fixed top-0 left-0 right-0 z-[9999] bg-white/80 dark:bg-black/80 backdrop-blur text-black dark:text-white duration-300">
       <div className="container py-2 md:py-0">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-3">

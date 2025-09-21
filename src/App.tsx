@@ -1,4 +1,4 @@
-import React, {useEffect } from "react";
+import React, { useEffect } from "react";
 import Navbar from "./Components/Navbar/Navbar";
 import Hero from "./Components/Hero/Hero";
 import Banner from "./Components/Banner/Banner";
@@ -9,8 +9,7 @@ import Footer from "./Components/Footer/Footer";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const App = () => {
-
+const App: React.FC = () => {
   useEffect(() => {
     AOS.init({
       offset: 100,
@@ -22,12 +21,20 @@ const App = () => {
   }, []);
 
   return (
-    <main className="overflow-x-hidden bg-white dark:bg-black text-black dark:text-white duration-300">
+    <main className="pt-16 md:pt-20 overflow-x-hidden bg-white dark:bg-black text-black dark:text-white duration-300">
       <Navbar />
-      <Hero />
-      <Features />
-      <Banner />
-      <AppStore />
+      <section id="home" className="scroll-mt-24">
+        <Hero />
+      </section>
+      <section id="features" className="scroll-mt-24">
+        <Features />
+      </section>
+      <section id="profile" className="scroll-mt-24">
+        <Banner />
+      </section>
+      <section id="download" className="scroll-mt-24">
+        <AppStore />
+      </section>
       <Footer />
     </main>
   );

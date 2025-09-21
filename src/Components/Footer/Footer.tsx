@@ -1,11 +1,9 @@
 import React from "react";
-import {
-  FaFacebook,
-  FaInstagram,
-  FaLinkedin,
-} from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 
-const FooterLinks = [
+type FooterLink = { id: number; title: string; link: string };
+
+const FooterLinks: FooterLink[] = [
   { id: 1, title: "Home", link: "/#" },
   {
     id: 2,
@@ -23,7 +21,8 @@ const FooterLinks = [
     link: "/#download",
   },
 ];
-const Footer = () => {
+
+const Footer: React.FC = () => {
   return (
     <>
       <div className="bg-gray-100 dark:bg-dark mt-10 rounded-t-3xl">
@@ -57,14 +56,8 @@ const Footer = () => {
                 <h1 className="text-xl font-bold mb-3">Quick Links</h1>
                 <ul className="space-y-3">
                   {FooterLinks.map((link) => (
-                    <li
-                      key={link.id}
-                      className="hover:translate-x-1 duration-300"
-                    >
-                      <a
-                        href={link.link}
-                        className="cursor-pointer hover:text-primary"
-                      >
+                    <li key={link.id} className="hover:translate-x-1 duration-300">
+                      <a href={link.link} className="cursor-pointer hover:text-primary">
                         {link.title}
                       </a>
                     </li>

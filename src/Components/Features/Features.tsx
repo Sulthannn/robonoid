@@ -3,7 +3,15 @@ import { FaCameraRetro } from "react-icons/fa";
 import { GiNotebook } from "react-icons/gi";
 import { SlNote } from "react-icons/sl";
 
-const FeaturesData = [
+type Feature = {
+  name: string;
+  icon: React.ReactNode;
+  link: string;
+  description: string;
+  aosDelay: string;
+};
+
+const FeaturesData: Feature[] = [
   {
     name: "Realistic Human-Robot Interaction",
     icon: (
@@ -33,7 +41,7 @@ const FeaturesData = [
   },
 ];
 
-const Features = () => {
+const Features: React.FC = () => {
   return (
     <>
       <div className="container py-14 sm:min-h-[600px]">

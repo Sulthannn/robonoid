@@ -1,7 +1,7 @@
 import React from "react";
 import BannerPng from "../../assets/banner.png";
 
-const Banner = () => {
+const Banner: React.FC = () => {
   return (
     <div className="py-12 sm:py-0 relative">
       <div className="container min-h-[620px] flex items-center">
@@ -16,7 +16,7 @@ const Banner = () => {
                 data-aos-delay="300"
                 className="text-4xl font-semibold"
               >
-                DISCOVER THE FASCINATING WORLD OF {" "}
+                DISCOVER THE FASCINATING WORLD OF{" "}
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
                   HUMANOID ROBOTS ON OUR PLATFORM
                 </span>
